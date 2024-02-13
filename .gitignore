@@ -9,7 +9,7 @@ myenv/
 Iodosulfuron/
 
 # # Ignore entire virtual environment directory
-# myenv/
+ my_life_env/
 
 # Alternatively, ignore specific large files
 myenv/Lib/site-packages/torch/lib/torch_cpu.dll
