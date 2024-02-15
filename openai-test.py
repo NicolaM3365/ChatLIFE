@@ -1,7 +1,7 @@
 import openai
 
 # Set your OpenAI API key here
-openai.api_key = "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"
+openai.api_key = "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"
 
 # Use the `openai.ChatCompletion.create` method directly without creating a `client` object
 completion = openai.ChatCompletion.create(
