@@ -20,7 +20,10 @@ driver = webdriver.Chrome(executable_path=driver_path)
 # Example: Open Google
 # driver.get("https://www.google.com/")
 
-driver.get("https://www.anses.fr/fr/decisions?")
+driver.get("https://www.anses.fr/fr/decisions")
+
+
+
 
 # Find all PDF links that contain 'PBIS' in the URL
 pbis_pdf_links = driver.find_elements(By.CSS_SELECTOR, "a[href*='PBIS']")
@@ -45,3 +48,27 @@ for link in pbis_pdf_links:
 
 # Remember to close the WebDriver session when done
 driver.quit()
+
+
+
+def run_concurrent_requests(start_page, end_page, dbx, dropbox_folder):
+    page_urls = [f'https://www.anses.fr/fr/decisions?page={page}' for page in range(start_page, end_page + 1)]
+    with ThreadPoolExecutor(max_workers=10) as executor:
+        executor.map(lambda url: process_page(url, dbx, dropbox_folder), page_urls)
+
+# Main script
+if __name__ == "__main__":
+    start_page = 1  #starting page number
+    end_page = 2368  #ending page number
+
+    # Dropbox folder name
+    dropbox_folder = "Apps/ANSES v2"
+
+    # Create Dropbox instance
+    dbx = Dropbox(DROPBOX_ACCESS_TOKEN)
+
+    # Run concurrent requests
+    print(f"Scraping pages {start_page} to {end_page}...")
+    run_concurrent_requests(start_page, end_page, dbx, dropbox_folder)
+
+    print("Script completed.")
