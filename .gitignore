@@ -16,11 +16,15 @@ myenv/Lib/site-packages/torch/lib/torch_cpu.dll
 myenv/Lib/site-packages/torch/lib/dnnl.lib
 
 
-Iodosulfuron/AIR/RAR/Iodosulfuron_RAR_20_Volume_3CP_IMS+MPR_OD400_B-9_2015_04_25_san.pdf
-Iodosulfuron/AIR/RAR/OCRIodosulfuron_RAR_20_Volume_3CP_IMS+MPR_OD400_B-9_2015_04_25_san.pdf
-Iodosulfuron/AIR/RAR/Iodosulfuron_RAR_08_Volume_3CA_B-6_2015_04_25_san.pdf
+
+__pycache__/
+*.pyc
+db.sqlite3
+.env
+media/
 
 # Byte-compiled / optimized / DLL files
+
 __pycache__/
 *.py[cod]
 migrations/__pycache__/
